@@ -1,6 +1,6 @@
-//UC1 - Email has to start with characters and have atleast 3 characters
+//UC2 - Email has to have @ symbol
 
-const emailRegex = RegExp("^[a-zA-Z][._@a-zA-Z]*$");
+const emailRegex = RegExp("^(?=.{3,20}@)[a-zA-Z]{2,}[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-_.][a-zA-Z0-9-]+$");
 
 function validateEmail(email){
     if(emailRegex.test(email))
@@ -10,8 +10,8 @@ function validateEmail(email){
 }
 
 try{
-    validateEmail("rahul@ggg.com");   //valid
-    validateEmail(".rahul@kkk.com");  //invalid - email has to start with a letter
+    validateEmail("rahul@ggg");   //valid
+    validateEmail("rahulkkk");  //invalid - email has to have @ symbol
 }catch(e){
     console.error(e);
 }
