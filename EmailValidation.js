@@ -1,6 +1,6 @@
-//UC4 - Handling optional part with valid special characters
+//UC5 - Method of writing 2 character optional country code
 
-const emailRegex = RegExp("^(?=.{3,20}@)[a-zA-Z]+[A-Za-z0-9]+[- + . _]?[a-zA-Z0-9]+.@[^-_.][a-zA-Z0-9-]+(\\.[A-Za-z]+)(\\.[a-zA-Z]+)*$");
+const emailRegex = RegExp("^(?=.{3,20}@)[a-zA-Z]+[A-Za-z0-9]+[- + . _]?[a-zA-Z0-9]+.@[^-_.][a-zA-Z0-9-]+(\\.[a-z]+)(\\.[a-z]{2})*$");
 
 function validateEmail(email){
     if(emailRegex.test(email))
@@ -10,8 +10,8 @@ function validateEmail(email){
 }
 
 try{
-    validateEmail("rahul_jha@ggg.co.in");   //valid
-    validateEmail("rahul$kkk@dfgd.com");  //invalid
+    validateEmail("rahul.jha@gmail.co.in");   //valid
+    validateEmail("rahul_kkk@dfgd.com.com");  //invalid
 }catch(e){
     console.error(e);
 }
